@@ -9,10 +9,9 @@
 // - also a check to see if players are not on same position (iterate through positions array and check if they would have the same position after the dice roll)
 // - also a check if you get a six and you already have a player on the starting plot (then you can't get a new player out)
 
-
-let initialDOM = document.getElementById("main-board").innerHTML;
-
-localStorage.setItem("initialDOM", initialDOM);
+// Putting the contents of the inner HTML of the element with the id "main-board" in local storage
+// It is stored under the key name "initial DOM"
+localStorage.setItem("initialDOM", document.getElementById("main-board").innerHTML);
 
 let players = [{
     username: "Antonis",
@@ -80,8 +79,11 @@ function diceChecker(dice, currentPlayer) {
 
 function render() {
 
+    // Getting the value stored in local storage under the initialDOM key (aka the inner HTML content of our initial DOM) and loading it into the current "main-board" element
+    // AKA reseting the state of the game board to its original version
     document.getElementById("main-board").innerHTML = localStorage.getItem("initialDOM");
 
+    // This then renders the changes in the DOM based on gameplay
     for (let index = 0; index < players.length; index++) {
         const player = players[index];
 
