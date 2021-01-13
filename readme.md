@@ -1,1 +1,1 @@
-# SNES JS Ludo
+# JS Ludo

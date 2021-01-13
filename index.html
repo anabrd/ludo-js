@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eleni's Ludo</title>
 
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;400;500;600;700&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/dc3beb17c2.js" crossorigin="anonymous"></script>
     <script async src="./main.js"></script>
 </head>
+
 <body>
-    <h1 onclick="showDice()">Click me to roll dice!</h1>
+
+    <header>
+
+
+        <button onclick="iterateGame()">Click me to roll dice!</button>
+
+
+    </header>
+
     <main>
+                <aside>
+        <h2>Last turn:</h2>
+        <h2 id="player">Red</h2>
+                </aside>
         <div id="main-board">
 
             <!-- connecting lines -->
@@ -22,7 +37,7 @@
                 <div id="bottom-lines" class="lines"></div>
                 <div id="left-lines" class="lines"></div>
             </div>
-            
+
             <div id="main-container">
 
                 <!-- first row -->
@@ -44,20 +59,20 @@
                 <div class="empty"></div>
                 <div class="empty"></div>
                 <div class="white medium" id="pos8"></div>
-                <div class="green small"></div>
+                <div class="green small" id="green-pos-1"></div>
                 <div class="white medium" id="pos12"></div>
                 <div class="empty"></div>
                 <div class="empty"></div>
                 <div id="initial-green-2" class="green big"></div>
                 <div id="initial-green-3" class="green big"></div>
-                
+
                 <!-- third row -->
                 <div class="empty"></div>
                 <div class="empty"></div>
                 <div class="empty"></div>
                 <div class="empty"></div>
                 <div class="white medium" id="pos7"></div>
-                <div class="green small"></div>
+                <div class="green small" id="green-pos-2"></div>
                 <div class="white medium" id="pos13"></div>
                 <div class="empty"></div>
                 <div class="empty"></div>
@@ -70,7 +85,7 @@
                 <div class="empty"></div>
                 <div class="empty"></div>
                 <div class="white medium" id="pos6"></div>
-                <div class="green small"></div>
+                <div class="green small" id="green-pos-3"></div>
                 <div class="white medium" id="pos14"></div>
                 <div class="empty"></div>
                 <div class="empty"></div>
@@ -83,7 +98,7 @@
                 <div class="white medium" id="pos3"></div>
                 <div class="white medium" id="pos4"></div>
                 <div class="white medium" id="pos5"><i class="fas fa-star"></i></div>
-                <div class="green small"></div>
+                <div class="green small" id="green-pos-4"></div>
                 <div class="white medium" id="pos15"><i class="fas fa-star"></i></div>
                 <div class="white medium" id="pos16"></div>
                 <div class="white medium" id="pos17"></div>
@@ -92,15 +107,15 @@
 
                 <!-- sixth row -->
                 <div class="white medium" id="pos40"></div>
-                <div class="red small"></div>
-                <div class="red small"></div>
-                <div class="red small"></div>
-                <div class="red small"></div>
+                <div class="red small" id="red-pos-1"></div>
+                <div class="red small" id="red-pos-2"></div>
+                <div class="red small" id="red-pos-3"></div>
+                <div class="red small" id="red-pos-4"></div>
                 <div class="empty"></div>
-                <div class="yellow small"></div>
-                <div class="yellow small"></div>
-                <div class="yellow small"></div>
-                <div class="yellow small"></div>
+                <div class="yellow small" id="yellow-pos-4"></div>
+                <div class="yellow small" id="yellow-pos-3"></div>
+                <div class="yellow small" id="yellow-pos-2"></div>
+                <div class="yellow small" id="yellow-pos-1"></div>
                 <div class="white medium" id="pos20"></div>
 
                 <!-- seventh row -->
@@ -109,7 +124,7 @@
                 <div class="white medium" id="pos37"></div>
                 <div class="white medium" id="pos36"></div>
                 <div class="white medium" id="pos35"><i class="fas fa-star"></i></div>
-                <div class="blue small"></div>
+                <div class="blue small"  id="blue-pos-4"></div>
                 <div class="white medium" id="pos25"><i class="fas fa-star"></i></div>
                 <div class="white medium" id="pos24"></div>
                 <div class="white medium" id="pos23"></div>
@@ -122,7 +137,7 @@
                 <div class="empty"></div>
                 <div class="empty"></div>
                 <div class="white medium" id="pos34"></div>
-                <div class="blue small"></div>
+                <div class="blue small"  id="blue-pos-3"></div>
                 <div class="white medium" id="pos26"></div>
                 <div class="empty"></div>
                 <div class="empty"></div>
@@ -135,20 +150,20 @@
                 <div class="empty"></div>
                 <div class="empty"></div>
                 <div class="white medium" id="pos33"></div>
-                <div class="blue small"></div>
+                <div class="blue small"  id="blue-pos-2"></div>
                 <div class="white medium" id="pos27"></div>
                 <div class="empty"></div>
                 <div class="empty"></div>
                 <div class="empty"></div>
                 <div class="empty"></div>
-                
+
                 <!-- tenth row -->
                 <div id="initial-blue-0" class="blue big"></div>
                 <div id="initial-blue-1" class="blue big"></div>
                 <div class="empty"></div>
                 <div class="empty"></div>
                 <div class="white medium" id="pos32"></div>
-                <div class="blue small"></div>
+                <div class="blue small"  id="blue-pos-1"></div>
                 <div class="white medium" id="pos28"></div>
                 <div class="empty"></div>
                 <div class="empty"></div>
@@ -169,6 +184,11 @@
                 <div id="initial-yellow-3" class="yellow big"></div>
             </div>
         </div>
+                <aside>
+        <h2>Last dice roll:</h2>
+        <img id="dice-img" src="./dice-6.png" alt="">
+                </aside>
     </main>
 </body>
+
 </html>

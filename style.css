@@ -2,41 +2,52 @@ body {
     height: 100vh;
     width: 100vw;
     margin: 0;
-
+    font-family: 'Josefin Sans',
+    sans-serif;
+    font-size: 1rem;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     overflow: hidden;
 }
 
-h1 {
-    width: 70vmin;
+
+header {
+    display: flex;
+    /* justify-content: space-around; */
+}
+
+button {
     text-align: center;
-    margin-top: 0vmin;
-    margin-bottom: 3vmin;
+    margin: 5vmin;
+    padding: 2%;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 4vmin;
-    font-weight: 200;
+    font-weight: 400;
 }
 
 main {
-    height: 80vmin;
-    width: 80vmin;
-    background: url(https://images.pexels.com/photos/301717/pexels-photo-301717.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
-    border-radius: 5%;
-
-    -webkit-box-shadow: 0px 0px 13px -3px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 13px -3px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 0px 13px -3px rgba(0, 0, 0, 0.75);
-
+    height: 100vmin;
+    width: 100vmin;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
 }
 
+aside {
+    margin: 0 5vmin;
+}
+
 #main-board {
+    flex: 1;
+    background: url(https://images.pexels.com/photos/301717/pexels-photo-301717.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
+    border-radius: 5%;
+    -webkit-box-shadow: 0px 0px 13px -3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 13px -3px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 13px -3px rgba(0, 0, 0, 0.75);
     height: 70vmin;
     width: 70vmin;
     border: 2vmin double black;
@@ -104,9 +115,15 @@ main {
     background-color: rgb(58, 143, 255);
 }
 
+.focus {
+-webkit-box-shadow: 2px 0px 24px 4px rgba(34, 97, 3, 1);
+-moz-box-shadow: 2px 0px 24px 4px rgba(34, 97, 3, 1);
+box-shadow: 2px 0px 24px 4px rgba(34, 97, 3, 1);
+}
+
 img {
-    height: 4vmin;
-    width: 4vmin;
+    height: 10vmin;
+    width: 10vmin;
 }
 
 i {
@@ -158,4 +175,19 @@ i {
     left: 25.2vmin;
     top: 36.2vmin;
     transform: rotate(270deg);
+}
+
+button {
+    background-color: #fff;
+    outline: none;
+    border: 3px solid black;
+}
+
+button:hover {
+    background-color: lightgrey;
+}
+
+button:active {
+    background-color: darkgrey;
+    color: white;
 }
